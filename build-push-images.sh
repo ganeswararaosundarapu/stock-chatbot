@@ -4,7 +4,7 @@ set -e  # Exit on any error
 DOCKER_REGISTRY_PREFIX="${DOCKER_REGISTRY_PREFIX:-ganeshs777/}"
 BUILD_NUMBER="${BUILD_NUMBER:-latest}"
 
-services=("chatbot-ui" ) #"stocks-api" "chatbot-ui"
+services=("stocks-api" "chatbot-ui")
 
 build_push_images() {
     local service=$1
