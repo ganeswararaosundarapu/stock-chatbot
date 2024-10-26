@@ -1,0 +1,37 @@
+{
+  "name": "stocks-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc && npm run copy-json",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "copy-json": "copyfiles -u 1 src/**/*.json dist/",
+    "build-dev-image": "docker build --no-cache -t ${DOCKER_REGISTRY_PREFIX}stocks-api:${BUILD_NUMBER} .",
+    "publish-image": "docker push ${DOCKER_REGISTRY_PREFIX}stocks-api:${BUILD_NUMBER}"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.7.8",
+    "@types/supertest": "^6.0.2",
+    "copyfiles": "^2.4.1",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}

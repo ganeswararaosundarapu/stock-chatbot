@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  stocks-api:
+    build:
+      context: ./stocks-api
+      dockerfile: Dockerfile
+    image: ${DOCKER_REGISTRY_PREFIX}stocks-api:${BUILD_NUMBER}
+    ports:
+      - "7000:7000"
+
+  chatbot-ui:
+    build:
+      context: ./chatbot-ui
+      dockerfile: Dockerfile
+    image: ${DOCKER_REGISTRY_PREFIX}chatbot-ui:${BUILD_NUMBER}
+    ports:
+      - "3000:80"

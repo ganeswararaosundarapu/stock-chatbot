@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  stocks-api:
+    image: ${DOCKER_REGISTRY_PREFIX}stocks-api:${BUILD_NUMBER}
+    ports:
+      - "7000:7000"
+
+  chatbot-ui:
+    image: ${DOCKER_REGISTRY_PREFIX}chatbot-ui:${BUILD_NUMBER}
+    ports:
+      - "3000:80"
+    links:
+      - stocks-api
+    depends_on:
+      stocks-api:
+        condition: service_started
+    environment:
+      - STOCKS_API_URL=http://stocks-api:7000
