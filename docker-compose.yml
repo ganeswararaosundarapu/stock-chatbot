@@ -4,6 +4,8 @@ services:
     image: ${DOCKER_REGISTRY_PREFIX}stocks-api:${BUILD_NUMBER}
     ports:
       - "7000:7000"
+    environment:
+      - PORT=7000
 
   chatbot-ui:
     image: ${DOCKER_REGISTRY_PREFIX}chatbot-ui:${BUILD_NUMBER}
@@ -15,4 +17,4 @@ services:
       stocks-api:
         condition: service_started
     environment:
-      - STOCKS_API_URL=http://stocks-api:7000
+      - REACT_APP_API_URL=''

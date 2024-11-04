@@ -9,7 +9,7 @@ import { ThemeContext }  from './ThemeContext'
 
 import './Chatbot.css'
 
-const STOCKS_API_URL: string = process.env.STOCKS_API_URL || 'http://localhost:7000'
+const STOCKS_API_URL: string = process.env.REACT_APP_API_URL || ''
 console.log('STOCKS_API_URL ', STOCKS_API_URL)
 
 const Chatbot: React.FC = () => {

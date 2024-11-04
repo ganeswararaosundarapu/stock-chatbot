@@ -6,6 +6,7 @@ import stocksRouter from './routes/v1/stocks'
 
 const app = express()
 const PORT = process.env.PORT || 7000
+console.log('Configured PORT: ', PORT)
 
 app.use(bodyParser.json())
 app.use(cors())
